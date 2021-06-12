@@ -1,0 +1,672 @@
+<!--[if lt IE 9]><script src="https://cdn.jotfor.ms/js/vendor/flashcanvas.js?3.3.25189" type="text/javascript"></script><![endif]-->
+<script src="https://cdn.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.25189" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/js/vendor/jSignature.min.noconflict.js?3.3.25189" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/js/vendor/jotform.signaturepad.js?3.3.25189" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.25189" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/pdf-importer/static/js/form-patch.js?3.3.25189" type="text/javascript"></script>
+<script type="text/javascript">
+    JotForm.init(function() {
+
+        JotForm.calendarMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        JotForm.calendarDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        JotForm.calendarOther = {
+            "today": "Today"
+        };
+        var languageOptions = document.querySelectorAll('#langList li');
+        for (var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+            languageOptions[langIndex].on('click', function(e) {
+                setTimeout(function() {
+                    JotForm.setCalendar("11", false, {
+                        "days": {
+                            "monday": true,
+                            "tuesday": true,
+                            "wednesday": true,
+                            "thursday": true,
+                            "friday": true,
+                            "saturday": true,
+                            "sunday": true
+                        },
+                        "future": true,
+                        "past": true,
+                        "custom": false,
+                        "ranges": false,
+                        "start": "",
+                        "end": ""
+                    });
+                }, 0);
+            });
+        }
+        JotForm.setCalendar("11", false, {
+            "days": {
+                "monday": true,
+                "tuesday": true,
+                "wednesday": true,
+                "thursday": true,
+                "friday": true,
+                "saturday": true,
+                "sunday": true
+            },
+            "future": true,
+            "past": true,
+            "custom": false,
+            "ranges": false,
+            "start": "",
+            "end": ""
+        });
+        JotForm.formatDate({
+            date: (new Date()),
+            dateField: $("id_" + 11)
+        });
+        JotForm.newDefaultTheme = false;
+        JotForm.extendsNewTheme = false;
+        JotForm.newPaymentUIForNewCreatedForms = false;
+        JotForm.importedPDF = "https://www.jotform.com/uploads/msaylors/form_files/pfc_5eb4b5fe143b0_Employee_Questionnaire_ms_form.pdf?nc=1";
+        JotForm.importedPDFSettings = {
+            "isConnected": "No",
+            "enableThumbnail": "Yes",
+            "hasPreviewButton": "Yes",
+            "startButtonText": "Start Filling",
+            "formType": "legacyForm",
+            "welcomeThumbnail": ""
+        };
+        JotForm.alterTexts(undefined);
+        JotForm.clearFieldOnHide = "disable";
+        JotForm.submitError = "jumpToFirstError";
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, {
+        "name": "employeeCovid19",
+        "qid": "1",
+        "text": " COVID-19 Self Screening Questionnaire",
+        "type": "control_head"
+    }, {
+        "name": "ltpgtltspanStylecolor",
+        "qid": "2",
+        "text": "You must answer “NO” to all the questions in this questionnaire in order to enter our physical location. If  you answer “YES” to any of the questions, please DO NOT come enter the company’s buildings. \nIf you experience any symptoms or answer “YES” to any of these questions, you must immediately  contact your health care professional for recommended next steps AND notify your manager and HR. ",
+        "type": "control_text"
+    }, {
+        "name": "symptom",
+        "qid": "3",
+        "text": "1) Have you had any of the following symptoms in the last 24 hours?",
+        "type": "control_matrix"
+    }, {
+        "name": "orAt",
+        "qid": "4",
+        "text": "OR at least TWO of the following symptoms in the last 24 hours:",
+        "type": "control_matrix"
+    }, {
+        "name": "ltpgtltulgtltligtltspanStylecolor",
+        "qid": "5",
+        "text": "If you answered “Yes” to question one, please DO NOT come into work. You should:\n\nSelf-quarantine for at least 10 days from the date on which you first experienced any of the above  symptoms; AND\nWait until you have had no fever for at least 3 days (without the use of fever-reducing medication) AND \nImproved respiratory symptoms (no cough, shortness of breath)\n",
+        "type": "control_text"
+    }, {
+        "name": "covid19",
+        "qid": "6",
+        "text": "2) In the last 14 days have you:",
+        "type": "control_matrix"
+    }, {
+        "name": "ltpgtltspanStylecolor7",
+        "qid": "7",
+        "text": "If you answered “Yes” to any part of question two, please DO NOT come into work. You should self quarantine for at least 14 days.\nI certify to the best of my knowledge; this information is accurate. ",
+        "type": "control_text"
+    }, null, null, {
+        "name": "submit",
+        "qid": "10",
+        "text": "Submit",
+        "type": "control_button"
+    }, {
+        "name": "date11",
+        "qid": "11",
+        "text": "Date",
+        "type": "control_datetime"
+    }, null, {
+        "name": "signature13",
+        "qid": "13",
+        "text": "Signature",
+        "type": "control_signature"
+    }, {
+        "name": "name",
+        "qid": "14",
+        "text": "Name",
+        "type": "control_fullname"
+    }]);
+    setTimeout(function() {
+        JotForm.paymentExtrasOnTheFly([null, {
+            "name": "employeeCovid19",
+            "qid": "1",
+            "text": " COVID-19 Self Screening Questionnaire",
+            "type": "control_head"
+        }, {
+            "name": "ltpgtltspanStylecolor",
+            "qid": "2",
+            "text": "You must answer “NO” to all the questions in this questionnaire in order to enter our physical location. If  you answer “YES” to any of the questions, please DO NOT come enter the company’s buildings. \nIf you experience any symptoms or answer “YES” to any of these questions, you must immediately  contact your health care professional for recommended next steps AND notify your manager and HR. ",
+            "type": "control_text"
+        }, {
+            "name": "symptom",
+            "qid": "3",
+            "text": "1) Have you had any of the following symptoms in the last 24 hours?",
+            "type": "control_matrix"
+        }, {
+            "name": "orAt",
+            "qid": "4",
+            "text": "OR at least TWO of the following symptoms in the last 24 hours:",
+            "type": "control_matrix"
+        }, {
+            "name": "ltpgtltulgtltligtltspanStylecolor",
+            "qid": "5",
+            "text": "If you answered “Yes” to question one, please DO NOT come into work. You should:\n\nSelf-quarantine for at least 10 days from the date on which you first experienced any of the above  symptoms; AND\nWait until you have had no fever for at least 3 days (without the use of fever-reducing medication) AND \nImproved respiratory symptoms (no cough, shortness of breath)\n",
+            "type": "control_text"
+        }, {
+            "name": "covid19",
+            "qid": "6",
+            "text": "2) In the last 14 days have you:",
+            "type": "control_matrix"
+        }, {
+            "name": "ltpgtltspanStylecolor7",
+            "qid": "7",
+            "text": "If you answered “Yes” to any part of question two, please DO NOT come into work. You should self quarantine for at least 14 days.\nI certify to the best of my knowledge; this information is accurate. ",
+            "type": "control_text"
+        }, null, null, {
+            "name": "submit",
+            "qid": "10",
+            "text": "Submit",
+            "type": "control_button"
+        }, {
+            "name": "date11",
+            "qid": "11",
+            "text": "Date",
+            "type": "control_datetime"
+        }, null, {
+            "name": "signature13",
+            "qid": "13",
+            "text": "Signature",
+            "type": "control_signature"
+        }, {
+            "name": "name",
+            "qid": "14",
+            "text": "Name",
+            "type": "control_fullname"
+        }]);
+    }, 20);
+</script>
+<link href="https://cdn.jotfor.ms/static/formCss.css?3.3.25189" rel="stylesheet" type="text/css" />
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.25189" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.25189" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/5ca4930530899c64ff77cfa1.css?" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.25189" />
+<style type="text/css">
+    @import 'https://fonts.googleapis.com/css?family=Roboto:light,lightitalic,normal,italic,bold,bolditalic';
+    n {
+        @import (css).'@buttonFontLink';
+    }
+    
+    .form-label-left {
+        width: 600px;
+    }
+    
+    .form-line {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    
+    .form-label-right {
+        width: 600px;
+    }
+    
+    .form-all {
+        width: 700px;
+        color: rgb(28, 38, 67) !important;
+        font-family: 'Roboto';
+        font-size: 15px;
+    }
+</style>
+
+<form class="jotform-form" action="https://submit.jotform.com/submit/211184848327460/" method="post" name="form_211184848327460" id="211184848327460" accept-charset="utf-8" autocomplete="on">
+    <input type="hidden" name="formID" value="211184848327460" />
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-default">
+                    <div class="header-text httal htvam">
+                        <h2 id="header_1" class="form-header" data-component="header">
+                            Patient COVID-19 Self Screening Questionnaire
+                        </h2>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_text" id="id_2">
+                <div id="cid_2" class="form-input-wide">
+                    <div id="text_2" class="form-html" data-component="text">
+                        <p><span style="font-size:10pt;"><span style="color:#000000;">You must answer “NO” to all the questions in this questionnaire in order to enter</span> <span style="color:#000000;">our physical location. If </span> <span style="color:#000000;">you answer “YES” to any of the questions, please </span>
+                            <span style="font-weight:bold;color:#000000;">DO NOT</span> <span style="color:#000000;">come </span><span style="color:#000000;">enter the company’s buildings</span><span style="color:#000000;">. </span></span>
+                        </p>
+                        <p><span style="font-size:10pt;"><span style="color:#000000;">If you experience any symptoms or answer “YES” to any of these questions, you must </span><span style="color:#000000;">immediately </span> <span style="color:#000000;">contact your health care professional for recommended next steps AND notify your manager and HR. </span></span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_matrix" id="id_3">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3">
+          1) Have you had any of the following symptoms in the last 24 hours?
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_3" class="form-input-wide jf-required">
+                    <table summary="" role="presentation" cellPadding="4" cellSpacing="0" class="form-matrix-table" data-component="matrix">
+                        <tr class="form-matrix-tr form-matrix-header-tr">
+                            <th class="form-matrix-th" style="border:none">
+
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_0">
+                                <label id="label_3_col_0"> Yes </label>
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_1">
+                                <label id="label_3_col_1"> No </label>
+                            </th>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_3 label_3_row_0">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_3_row_0"> Cough </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_3_0_0" class="form-radio validate[required, requireEveryRow]" name="q3_symptom[0]" value="Yes" aria-labelledby="label_3_col_0" />
+                                <label for="input_3_0_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_3_0_1" class="form-radio validate[required, requireEveryRow]" name="q3_symptom[0]" value="No" aria-labelledby="label_3_col_1" />
+                                <label for="input_3_0_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_3 label_3_row_1">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_3_row_1"> Shortness of breath of difficulty breathing </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_3_1_0" class="form-radio validate[required, requireEveryRow]" name="q3_symptom[1]" value="Yes" aria-labelledby="label_3_col_0" />
+                                <label for="input_3_1_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_3_1_1" class="form-radio validate[required, requireEveryRow]" name="q3_symptom[1]" value="No" aria-labelledby="label_3_col_1" />
+                                <label for="input_3_1_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_matrix" id="id_4">
+                <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
+          OR at least TWO of the following symptoms in the last 24 hours:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_4" class="form-input-wide jf-required">
+                    <table summary="" role="presentation" cellPadding="4" cellSpacing="0" class="form-matrix-table" data-component="matrix">
+                        <tr class="form-matrix-tr form-matrix-header-tr">
+                            <th class="form-matrix-th" style="border:none">
+
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_0">
+                                <label id="label_4_col_0"> Yes </label>
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_1">
+                                <label id="label_4_col_1"> No </label>
+                            </th>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_0">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_0"> Fever (usually 100.4 or higher) </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_0_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[0]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_0_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_0_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[0]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_0_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_1">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_1"> Chills </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_1_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[1]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_1_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_1_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[1]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_1_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_2">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_2"> Repeated shaking with chills </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_2_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[2]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_2_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_2_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[2]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_2_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_3">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_3"> Muscle pain </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_3_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[3]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_3_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_3_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[3]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_3_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_4">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_4"> Headache </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_4_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[4]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_4_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_4_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[4]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_4_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_5">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_5"> Sore throat </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_5_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[5]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_5_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_5_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[5]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_5_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_4 label_4_row_6">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_4_row_6"> New loss of taste or smell </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_6_0" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[6]" value="Yes" aria-labelledby="label_4_col_0" />
+                                <label for="input_4_6_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_4_6_1" class="form-radio validate[required, requireEveryRow]" name="q4_orAt[6]" value="No" aria-labelledby="label_4_col_1" />
+                                <label for="input_4_6_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_text" id="id_5">
+                <div id="cid_5" class="form-input-wide">
+                    <div id="text_5" class="form-html" data-component="text">
+                        <p><span style="font-size:10pt;"><span style="color:#000000;">If you answered “Yes” to question one, please </span><span style="font-weight:bold;color:#000000;">DO NOT</span> <span style="color:#000000;">come into work. You should:</span></span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span style="font-size:10pt;">
+                  <strong><span style="color:#000000;">Self</span><span style="color:#000000;">-</span></strong>
+                                <span style="color:#000000;">
+                    <strong>quarantine for at least 10 days</strong>
+                    from the date on which you first experienced any of the above
+                  </span>
+                                <span style="color:#000000;">
+                    symptoms
+                  </span>
+                                <span style="color:#000000;">
+                    ; AND
+                  </span>
+                                </span>
+                            </li>
+                            <li>
+                                <span style="font-size:10pt;">
+                  <span style="color:#000000;">
+                    Wait until you have had
+                    <strong>no fever for at least 3 days</strong>
+                    (without the use of fever-reducing 
+                  </span>
+                                <span style="color:#000000;">
+                    medication) AND
+                  </span>
+                                </span>
+                            </li>
+                            <li>
+                                <span style="color:#000000;font-size:10pt;">
+                  Improved respiratory symptoms (no cough, shortness of breath)
+                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_matrix" id="id_6">
+                <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6">
+          2) In the last 14 days have you:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_6" class="form-input-wide jf-required">
+                    <table summary="" role="presentation" cellPadding="4" cellSpacing="0" class="form-matrix-table" data-component="matrix">
+                        <tr class="form-matrix-tr form-matrix-header-tr">
+                            <th class="form-matrix-th" style="border:none">
+
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_0">
+                                <label id="label_6_col_0"> Yes </label>
+                            </th>
+                            <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_1">
+                                <label id="label_6_col_1"> No </label>
+                            </th>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_6 label_6_row_0">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_6_row_0">
+                  Been in contact with someone who was
+                  <b>
+                    diagnosed
+                  </b>
+                  with COVID-19?
+                </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_0_0" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[0]" value="Yes" aria-labelledby="label_6_col_0" />
+                                <label for="input_6_0_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_0_1" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[0]" value="No" aria-labelledby="label_6_col_1" />
+                                <label for="input_6_0_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_6 label_6_row_1">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_6_row_1">
+                  Been in close contact with someone who had COVID-19
+                  <b>
+                    symptoms
+                  </b>
+                  ?
+                </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_1_0" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[1]" value="Yes" aria-labelledby="label_6_col_0" />
+                                <label for="input_6_1_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_1_1" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[1]" value="No" aria-labelledby="label_6_col_1" />
+                                <label for="input_6_1_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                        <tr class="form-matrix-tr form-matrix-value-tr" role="group" aria-labelledby="label_6 label_6_row_2">
+                            <th scope="row" class="form-matrix-headers form-matrix-row-headers">
+                                <label id="label_6_row_2"> Traveled internationally or taken a cruise </label>
+                            </th>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_2_0" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[2]" value="Yes" aria-labelledby="label_6_col_0" />
+                                <label for="input_6_2_0" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                            <td class="form-matrix-values">
+                                <input type="radio" id="input_6_2_1" class="form-radio validate[required, requireEveryRow]" name="q6_covid19[2]" value="No" aria-labelledby="label_6_col_1" />
+                                <label for="input_6_2_1" class="matrix-choice-label matrix-radio-label">  </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_text" id="id_7">
+                <div id="cid_7" class="form-input-wide">
+                    <div id="text_7" class="form-html" data-component="text">
+                        <p><span style="font-size:10pt;"><span style="color:#000000;">If you answered “Yes” to any part of question two, please </span><span style="font-weight:bold;color:#000000;">DO NOT</span> <span style="color:#000000;">come into work. You should self</span>                            <span style="color:#000000;">quarantine for at least</span> <span style="color:#000000;">14 days.</span></span>
+                        </p>
+                        <p><span style="font-size:10pt;"><span style="color:#000000;">I certify </span><span style="color:#000000;">to the best of my knowledge; </span><span style="color:#000000;">this information is accurate. </span></span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_signature" id="id_13">
+                <label class="form-label form-label-top form-label-auto" id="label_13" for="input_13">
+          Signature
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_13" class="form-input-wide jf-required">
+                    <div data-wrapper-react="true">
+                        <div id="signature_pad_13" class="signature-pad-wrapper" style="width:402px;height:132px">
+                            <div data-wrapper-react="true">
+                                <!--[if IE 7]>
+                  <script type="text/javascript" src="/js/vendor/json2.js"></script>
+                <![endif]-->
+                            </div>
+                            <div class="signature-line signature-wrapper signature-placeholder" data-component="signature" style="width:402px;height:132px">
+                                <div id="sig_pad_13" data-width="400" data-height="130" data-id="13" data-required="true" class="pad validate[required]">
+                                </div>
+                                <input type="hidden" name="q13_signature13" class="output4" id="input_13" />
+                            </div>
+                            <span class="clear-pad-btn clear-pad" role="button" tabindex="0">
+                Clear
+              </span>
+                        </div>
+                        <div data-wrapper-react="true">
+                            <script type="text/javascript">
+                                window.signatureForm = true
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_fullname" id="id_14">
+                <label class="form-label form-label-top form-label-auto" id="label_14" for="first_14">
+          Name
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_14" class="form-input-wide jf-required">
+                    <div data-wrapper-react="true">
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+              <input type="text" id="first_14" name="q14_name[first]" class="form-textbox validate[required]" size="10" value="" data-component="first" aria-labelledby="label_14 sublabel_14_first" required="" />
+              <label class="form-sub-label" for="first_14" id="sublabel_14_first" style="min-height:13px" aria-hidden="false"> First Name </label>
+            </span>
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
+              <input type="text" id="last_14" name="q14_name[last]" class="form-textbox validate[required]" size="15" value="" data-component="last" aria-labelledby="label_14 sublabel_14_last" required="" />
+              <label class="form-sub-label" for="last_14" id="sublabel_14_last" style="min-height:13px" aria-hidden="false"> Last Name </label>
+            </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_datetime" id="id_11">
+                <label class="form-label form-label-top form-label-auto" id="label_11" for="lite_mode_11">
+          Date
+          <span class="form-required">
+            *
+          </span>
+        </label>
+                <div id="cid_11" class="form-input-wide jf-required">
+                    <div data-wrapper-react="true">
+                        <div style="display:none">
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                <input type="tel" class="form-textbox validate[required, limitDate]" id="month_11" name="q11_date11[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="04" required="" autoComplete="off" aria-labelledby="label_11 sublabel_11_month" />
+                <span class="date-separate" aria-hidden="true">
+                   /
+                </span>
+                            <label class="form-sub-label" for="month_11" id="sublabel_11_month" style="min-height:13px" aria-hidden="false"> Month </label>
+                            </span>
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                <input type="tel" class="currentDate form-textbox validate[required, limitDate]" id="day_11" name="q11_date11[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="29" required="" autoComplete="off" aria-labelledby="label_11 sublabel_11_day" />
+                <span class="date-separate" aria-hidden="true">
+                   /
+                </span>
+                            <label class="form-sub-label" for="day_11" id="sublabel_11_day" style="min-height:13px" aria-hidden="false"> Day </label>
+                            </span>
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                <input type="tel" class="form-textbox validate[required, limitDate]" id="year_11" name="q11_date11[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="2021" required="" autoComplete="off" aria-labelledby="label_11 sublabel_11_year" />
+                <label class="form-sub-label" for="year_11" id="sublabel_11_year" style="min-height:13px" aria-hidden="false"> Year </label>
+              </span>
+                        </div>
+                        <span class="form-sub-label-container" style="vertical-align:top">
+              <input type="text" class="form-textbox validate[required, limitDate, validateLiteDate]" id="lite_mode_11" size="12" data-maxlength="12" maxLength="12" data-age="" value="04/29/2021" required="" data-format="mmddyyyy" data-seperator="/" placeholder="mm/dd/yyyy" autoComplete="off" aria-labelledby="label_11 sublabel_11_litemode" />
+              <img class="showAutoCalendar newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_11_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v1" />
+              <label class="form-sub-label" for="lite_mode_11" id="sublabel_11_litemode" style="min-height:13px" aria-hidden="false"> Date </label>
+            </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_10">
+                <div id="cid_10" class="form-input-wide">
+                    <div style="margin-left:156px" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_10" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+              Submit
+            </button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="" />
+            </li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by JotForm";
+    </script>
+    <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="211184848327460" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='211184848327460'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "211184848327460-211184848327460";
+        }
+    </script>
+    <div class="formFooter-heightMask">
+    </div>
+    <div class="formFooter f6">
+        <div class="formFooter-wrapper formFooter-leftSide">
+            <a href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=211184848327460&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo/logo-new@1x.png" alt="Jotform Logo"></a>
+        </div>
+        <div class="formFooter-wrapper formFooter-rightSide">
+            <span class="formFooter-text">
+        Now create your own JotForm - It's free!
+      </span>
+            <a class="formFooter-button" href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=211184848327460&utm_content=jotform_button&utm_campaign=powered_by_jotform_le" target="_blank">Create your own JotForm</a>
+        </div>
+    </div>
+
+</form>
